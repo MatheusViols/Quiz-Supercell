@@ -7,22 +7,27 @@
 	<title>Quiz Supercell</title> <!-- Título -->
     </head> <!-- Fim do cabeçalho -->
     <body> <!--Inicio do conteúdo visível-->
-	<div id="quiz-container"> <!-- Contêiner principal do quiz -->
-	    <div class="gifs-personagens" style="justify-content: center;">
+	<header>
+	    <div id="coroas"> </div>
+	</header>
+	<main>
+	    <div id="quiz-container"> <!-- Contêiner principal do quiz -->
+		<div class="gifs-personagens" style="justify-content: center;">
 
-		<!--
-		    <img src="imagens/gifs/pam.gif" alt="robozinho la ele" />
-		    <img src="imagens/gifs/pinguim_fundo_preto.gif" alt="pinguim brawl stars"/>
-		    <img src="imagens/gifs/robo_fundo_preto.gif" alt="robozinho la ele" />
-		-->
-		<img src="imagens/gifs/galinha.gif" alt="galinha do hay day" />
-	    </div>
-	    <div id="timer">Tempo: <span id="time-left"></span>s</div> <!-- Linha que mostra o tempo restante -->
-	    <div class="question" id="question-text"></div> <!-- Lugar onde a pergunta será exibida -->
-	    <div class="options" id="options"></div> <!-- Contêiner onde os botões de resposta vão aparecer -->
-	    <div id="result"></div> <!-- Espaço reservado para o resultado final -->
+		    <!--
+			<img src="imagens/gifs/pam.gif" alt="robozinho la ele" />
+			<img src="imagens/gifs/pinguim_fundo_preto.gif" alt="pinguim brawl stars"/>
+			<img src="imagens/gifs/robo_fundo_preto.gif" alt="robozinho la ele" />
+		    -->
+		    <img src="imagens/gifs/galinha.gif" alt="galinha do hay day" />
+		</div>
+		<div id="timer">Tempo: <span id="time-left"></span>s</div> <!-- Linha que mostra o tempo restante -->
+		<div class="question" id="question-text"></div> <!-- Lugar onde a pergunta será exibida -->
+		<div class="options" id="options"></div> <!-- Contêiner onde os botões de resposta vão aparecer -->
+		<div id="result"></div> <!-- Espaço reservado para o resultado final -->
 
-	</div> <!-- Fecha o contêiner do quiz -->
+	    </div> <!-- Fecha o contêiner do quiz -->
+	</main>
 
 	<script> <!-- Início do script JavaScript -->
 	    // CONFIGURAÇÕES
@@ -38,7 +43,8 @@
 		},
 		{
 		    pergunta: "Em qual país a Supercell foi fundada?",
-		    alternativas: ["Japão", "Finlândia", "Estados Unidos", "Suécia"], correta: 1, // Finlândia
+		    alternativas: ["Japão", "Finlândia", "Estados Unidos", "Suécia"], 
+		    correta: 1, // Finlândia
 		    pontos: 10
 		},
 		{
@@ -116,10 +122,11 @@
 	    let contador; // usado para controlar o timer
 
 	    function iniciarPergunta() { // Função que configura e mostra a pergunta atual
-		document.body.style.backgroundImage = fundos[indice] || 'none'; // Define a imagem de fundo 
-		document.body.style.backgroundSize = 'cover'; // Faz a imagem cobrir todo o fundo
-		document.body.style.backgroundRepeat = 'no-repeat'
-		document.body.style.backgroundPosition = 'center'; // Centraliza a imagem de fundo
+		let main = document.querySelector('main')
+		main.style.backgroundImage = fundos[indice] || 'none'; // Define a imagem de fundo 
+		main.style.backgroundSize = 'cover'; // Faz a imagem cobrir todo o fundo
+		main.style.backgroundRepeat = 'no-repeat'
+		main.style.backgroundPosition = 'center';  // Centraliza a imagem de fundo
 		if (indice >= quiz.length) { // Se passou da última pergunta
 		    mostrarResultado(); // Mostra o resultado final
 		    return; // Sai da função
@@ -133,8 +140,7 @@
 		q.alternativas.forEach((alt, i) => { // Para cada alternativa da pergunta atual
 		    const btn = document.createElement("button"); // Cria um elemento button
 		    btn.textContent = alt; // Define o texto do botão como a alternativa
-		    btn.onmouseover = () => 
-			btn.onclick = () => responder(i); // Ao clicar, chama a função responder com o índice da alternativa
+		    btn.onclick = () => responder(i); // Ao clicar, chama a função responder com o índice da alternativa
 		    opcoesDiv.appendChild(btn); // Adiciona o botão ao contêiner de opções
 		});
 
@@ -157,33 +163,36 @@
 		}, 1000); 
 	    }
 
-	    function animacaoBotão() {
-		clearInterval(duracao); // Garante que interval anterior seja limpo
-
-		let duracao = 2; 
-		duracao = setInterval(() => { // Define um intervalo que executa todo segundo
-		    duracao--; // Decrementa o tempo
-
-		    if (tempo <= 0) { // Se o tempo zerou ou ficou negativo
-			clearInterval(duracao); // Limpa o intervalo atual
-			
-		    }
-		}, 1000); 
-	    }
-
 	    function responder(i) { // Função chamada quando o usuário clica numa opção
 		clearInterval(contador); // Para o timer atual
 		const q = quiz[indice]; // Pega a pergunta atual
 		if (i === q.correta) { // Compara índice selecionado com o índice correto
 		    pontuacao += q.pontos; // Se correto, soma os pontos da pergunta
+		    if (pontuacao === 10 || pontuacao === 50 || pontuacao === 100) {
+			let divCoroas = document.getElementById('coroas');
+			let coroa = document.createElement('img'); 
+			coroa.src = 'imagens/coroa.png';
+			divCoroas.appendChild(coroa);
+		    }
 		}
 		indice++; // Avança para a próxima pergunta
 		iniciarPergunta(); // Exibe próxima pergunta (ou resultado se acabou)
 	    }
 
 	    function mostrarResultado() { // Função que exibe a tela de resultado final
+		let desempenho;
+		if (pontuacao === 100) {
+		    desempenho = "Seu desempenho foi excelente, acertou todas as perguntas e garantiu as três coroas!";
+		} else if (pontuacao >= 50) {
+		    desempenho = "Seu desempenho foi bom, acertou mais que a metade das perguntas e garantiu duas coroas";
+		} else if (pontuacao >= 10) {
+		    desempenho = "";
+		} else {
+		    desempenho = "Burro.";
+		}
+
 		document.getElementById("quiz-container").innerHTML = `
-		    <h2>Resultado Final</h2>
+		    <h2><strong>${desempenho}</strong></h2>
 		    <p>Pontuação total: <strong>${pontuacao}</strong></p>
 		    <p>Você respondeu ${quiz.length} perguntas.</p>
 		    `; // Substitui todo o conteúdo do contêiner pelo HTML do resultado
