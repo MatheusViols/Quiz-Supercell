@@ -9,9 +9,12 @@
     <body> <!--Inicio do conteúdo visível-->
 	<div id="quiz-container"> <!-- Contêiner principal do quiz -->
 	    <div class="gifs-personagens" style="justify-content: center;">
-		<img src="imagens/gifs/pam.gif" alt="robozinho la ele" />
-		<img src="imagens/gifs/pinguim_fundo_preto.gif" alt="pinguim brawl stars"/>
-		<img src="imagens/gifs/robo_fundo_preto.gif" alt="robozinho la ele" />
+
+		<!--
+		    <img src="imagens/gifs/pam.gif" alt="robozinho la ele" />
+		    <img src="imagens/gifs/pinguim_fundo_preto.gif" alt="pinguim brawl stars"/>
+		    <img src="imagens/gifs/robo_fundo_preto.gif" alt="robozinho la ele" />
+		-->
 		<img src="imagens/gifs/galinha.gif" alt="galinha do hay day" />
 	    </div>
 	    <div id="timer">Tempo: <span id="time-left"></span>s</div> <!-- Linha que mostra o tempo restante -->
@@ -130,7 +133,8 @@
 		q.alternativas.forEach((alt, i) => { // Para cada alternativa da pergunta atual
 		    const btn = document.createElement("button"); // Cria um elemento button
 		    btn.textContent = alt; // Define o texto do botão como a alternativa
-		    btn.onclick = () => responder(i); // Ao clicar, chama a função responder com o índice da alternativa
+		    btn.onmouseover = () => 
+			btn.onclick = () => responder(i); // Ao clicar, chama a função responder com o índice da alternativa
 		    opcoesDiv.appendChild(btn); // Adiciona o botão ao contêiner de opções
 		});
 
@@ -153,15 +157,25 @@
 		}, 1000); 
 	    }
 
+	    function animacaoBotão() {
+		clearInterval(duracao); // Garante que interval anterior seja limpo
+
+		let duracao = 2; 
+		duracao = setInterval(() => { // Define um intervalo que executa todo segundo
+		    duracao--; // Decrementa o tempo
+
+		    if (tempo <= 0) { // Se o tempo zerou ou ficou negativo
+			clearInterval(duracao); // Limpa o intervalo atual
+			
+		    }
+		}, 1000); 
+	    }
+
 	    function responder(i) { // Função chamada quando o usuário clica numa opção
 		clearInterval(contador); // Para o timer atual
 		const q = quiz[indice]; // Pega a pergunta atual
 		if (i === q.correta) { // Compara índice selecionado com o índice correto
 		    pontuacao += q.pontos; // Se correto, soma os pontos da pergunta
-		    document.getElemen
-		}
-		else {
-
 		}
 		indice++; // Avança para a próxima pergunta
 		iniciarPergunta(); // Exibe próxima pergunta (ou resultado se acabou)

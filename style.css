@@ -40,7 +40,7 @@
 
     padding: 20px; /* Espaço interno do contêiner */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra leve */
+    box-shadow: 0px 5px 0px blue; /* Sombra leve */
   }
   .question { /* Estilos para o texto da pergunta */
     font-size: 20px; /* Tamanho da fonte */
@@ -55,7 +55,7 @@
       width: 50px;
       height: 50px;
   }
-
+  
   .options button {
     width: 100%; /* Botão ocupa toda a largura do contêiner de opções */
     height: 55px;
@@ -67,6 +67,18 @@
     border-radius: 5px; /* Bordas levemente arredondadas */
     cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
   }
+
+  .options button:hover {
+      height: 58px;
+      box-shadow: -3px 3px 0px blue;
+      background-color: #e6e6e6;
+  }
+
+  .options button:hover:after {
+      
+      content: url('imagens/gifs/emojipensando.gif/');
+  }
+
   #timer { 
     font-weight: bold; /* Negrito */
     margin-bottom: 10px; /* Espaço abaixo do temporizador */
