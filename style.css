@@ -20,14 +20,24 @@
     padding: 20px; /* Espaçamento interno ao redor do conteúdo */
   }
 
+  .banner {
+      display: flex;
+      width: 100%;
+
+      background-color: black;
+  }
+
   #quiz-container {
     max-width: 600px; /* Largura máxima do contêiner */
-    max-height: 600px; /*altura máxima do contêiner*/
+    max-height: 700px; /*altura máxima do contêiner*/
 
     width: 400px;
-    height: 350px;
+
     margin: auto; /* Centraliza horizontalmente */
-    background: #fff; /* Fundo branco do contêiner */
+
+    color: white;
+    background-color: black; /* Fundo branco do contêiner */
+
     padding: 20px; /* Espaço interno do contêiner */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra leve */
@@ -36,6 +46,16 @@
     font-size: 20px; /* Tamanho da fonte */
     margin-bottom: 15px; /* Espaço abaixo da pergunta */
   }
+
+  .gifs-personagens{
+      display:flex;
+      width: 100%;
+  }
+  .gifs-personagens img{
+      width: 50px;
+      height: 50px;
+  }
+
   .options button {
     width: 100%; /* Botão ocupa toda a largura do contêiner de opções */
     height: 55px;
