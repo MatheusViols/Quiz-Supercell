@@ -1,0 +1,157 @@
+/* Início da estilização CSS*/
+
+* { /* Garante que a página comece com margin e padding zerados */
+    margin: 0px;
+    padding: 0px;
+}
+
+html{/* Estilização da tag html */
+    margin: auto; /* Margin automatica  */
+    width: 100%; /* Largura ocupando todo o espaço */
+    height: 100%; /* Altura ocupando todo o espaço */
+    
+}
+body {/* Estilização do body */
+    margin: auto; /* Margin automatica */
+    width: 100%; /* Largura ocupando todo o espaço */
+    height: 100%; /* Altura ocupando todo o espaço */
+
+}
+
+#coroas { /* Estilização da div que contém as coroas */
+    display: flex; /* Display flex para garantir que as coroas fiquem uma ao lado da outra caso haja espaço */
+    justify-content: center; /* Alinha as coroas no centro */
+
+    width: 100%; /* Largura máxima do contêiner */
+    height: 50px; /*altura máxima do contêiner*/
+
+    margin: auto; /* Centraliza horizontalmente */
+
+    background-color: black; /* Fundo branco do contêiner */
+
+    border-bottom: solid white 5px; /* Uma pequena borda branca na parte de baixo */
+
+    padding: 20px; /* Espaço interno do contêiner */
+}
+
+main {/* Estilização da main */
+    display: flex; /* Ativa o Flexbox */
+    margin: auto; /* Margin automatica */
+
+    background-size: cover; /* Faz o background cubra toda a main */
+
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+
+    align-items: center; /* Centraliza verticalmente */
+    font-family: Arial, sans-serif; /* Fonte padrão da página */
+    background: #f2f2f2; /* Cor de fundo padrão */
+    padding: 20px; /* Espaçamento interno ao redor do conteúdo */
+}
+
+
+#quiz-container {/* Estilização do container do quiz */
+    max-width: 300px; /* Largura máxima do contêiner */
+    max-height: 700px; /*altura máxima do contêiner*/
+
+    margin: auto; /* Centraliza horizontalmente */
+
+    color: white; /* Define o texto como branco para se destacar no fundo preto */
+    background-color: black; /* Fundo preto do contêiner */
+
+    padding: 20px; /* Espaço interno do contêiner */
+
+    /* Cria duas bordas vermelhas na esqueda e topo do container */
+    border-left: solid red 5px; 
+    border-top: solid red 5px;
+
+    /* Cria duas bordas azuis na direita e abaixo do container */
+    border-right: solid blue 5px;
+    border-bottom: solid blue 5px;
+
+    border-radius: 10px; /* Bordas arredondadas */
+
+    overflow: scroll;
+}
+.question { /* Estilos para o texto da pergunta */
+    font-size: 20px; /* Tamanho da fonte */
+    margin-bottom: 15px; /* Espaço abaixo da pergunta */
+}
+
+.gifs-personagens{/* Estilização da div que contém os gifs dos personagens */
+    display:flex;/* Torna ela flexivel para ter um gif ao lado do outro quando houver espaço */
+    width: 100%;/* Ocupa toda a largura do container */
+}
+.gifs-personagens img{/* Estilização dos gifs que estão dentro da div gifs-personagens */
+    /* Torna a imagem quadrada 50x50 */
+    width: 50px;
+    height: 50px;
+}
+
+.options button { /* Estilização dos botões de opções das perguntas */
+    width: 100%; /* Botão ocupa toda a largura do contêiner de opções */
+    height: 55px;/* Altura de 55px */
+
+    text-align: left; /* Texto alinhado à esquerda */
+
+    padding: 10px; /* Espaço interno do botão */
+    margin: 5px 0; /* Espaçamento vertical entre botões */
+
+    border: 1px solid #ccc; /* Borda cinza clara */
+    background: #eee; /* Fundo do botão */
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.options button:hover {/* Estilização quando o mouse estiver em cima do botão */
+    height: 58px; /* Aumenta levemente a altura do botão */
+    box-shadow: -3px 3px 0px blue; /* Cria uma sombra para efeito de destaque */
+    background-color: #e6e6e6; /* Muda a cor de fundo para efeitos de destaque */
+}
+
+.options button:hover:after {/* Estilização do que fica após o texto do botão quando o mouse estiver em cima */
+    content: url('imagens/gifs/emojipensando.gif/'); /* O gif escolhido foi um emoji pensando */
+}
+
+#timer { /* Estilização da div que contém o timer */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaço abaixo do temporizador */
+}
+
+#gabarito {
+    padding: 5px;
+}
+
+#acerto {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #5fe89f;
+}
+#acerto h4{
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    border-bottom: 2px solid white;
+}
+#acerto p{
+    margin-top: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}
+
+#erro {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #f25c6b;
+}
+#erro h4{
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+    border-bottom: 2px solid white;
+}
+#erro p{
+    margin-top: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}
