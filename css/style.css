@@ -109,49 +109,46 @@ main {/* Estilização da main */
     background-color: #e6e6e6; /* Muda a cor de fundo para efeitos de destaque */
 }
 
-.options button:hover:after {/* Estilização do que fica após o texto do botão quando o mouse estiver em cima */
-    content: url('imagens/gifs/emojipensando.gif/'); /* O gif escolhido foi um emoji pensando */
-}
-
 #timer { /* Estilização da div que contém o timer */
     font-weight: bold; /* Negrito */
     margin-bottom: 10px; /* Espaço abaixo do temporizador */
 }
 
-#gabarito {
-    padding: 5px;
+#gabarito { /* Estilizaçã da div de gabarito */
+    padding: 5px; /* Padding interno */
 }
 
-#acerto {
-    margin-top: 5px;
-    padding: 5px;
-    background-color: #5fe89f;
+#acerto { /* Estilização das divs que representam os acertos no gabarito */
+    margin-top: 5px; /* Margem no topo para separar as questões */
+    padding: 5px; /* padding interno de 5 pixels  */
+    background-color: #5fe89f; /* Cor verde para acertos */
 }
-#acerto h4{
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
-    border-bottom: 2px solid white;
+#acerto h4{ /* Estilização do titulo da questão */
+    font-weight: bold; /* Peso da fonte para bold */
+    text-shadow: 1px 1px 1px black; /* Uma pequena sombra para efeito de contorno */
+    border-bottom: 2px solid white; /* uma borda na parte de baixo do titulo para separar do paragrafo */
 }
-#acerto p{
-    margin-top: 2px;
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
+#acerto p{ /* Estilização do paragrafo que contém a resposta correta */
+    margin-top: 2px; /* Margem para separar do titulo */
+    font-size: 15px; /* Tamanho da fonte para 15 pixels */
+    font-weight: bold; /* Peso da fonte para bold */
+    text-shadow: 1px 1px 1px black; /* Uma pequena sombra para efeito de contorno */
 }
 
-#erro {
-    margin-top: 5px;
-    padding: 5px;
-    background-color: #f25c6b;
+#erro { /* Estilização das divs que representam os acertos no gabarito */
+    margin-top: 5px; /* Margem no topo para separar as questões */
+    padding: 5px; /* padding interno de 5 pixels */
+    background-color: #f25c6b; /* Cor vermelha para erros */
 }
-#erro h4{
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
-    border-bottom: 2px solid white;
+#erro h4{ /* Estilização do titulo da questão */
+    font-weight: bold; /* Peso da fonte para bold */
+    text-shadow: 1px 1px 1px black; /* Uma pequena sombra para efeito de contorno */
+    border-bottom: 2px solid white; /* uma borda na parte de baixo do titulo para separar do paragrafo */
 }
-#erro p{
-    margin-top: 2px;
-    font-size: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px black;
+#erro p{ /* Estilização do paragrafo que contém a resposta correta */
+    margin-top: 2px; /* Margem para separar do titulo */
+    font-size: 15px; /* Tamanho da fonte para 15 pixels */
+    font-weight: bold; /* Peso da fonte para bold */
+    text-shadow: 1px 1px 1px black; /* Uma pequena sombra para efeito de contorno */
 }
+
